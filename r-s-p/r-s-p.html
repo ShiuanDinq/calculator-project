@@ -43,7 +43,8 @@
            function game(){
 
                
-                let win=0;
+                let playerscore=0;
+                let computerscore=0;
 
                 let round=0;
                 for(round=1; round<=5; round++){
@@ -51,25 +52,29 @@
                     let result = playround(computerPlay(),playerPlay());
                 
                     if(result=="win"){
-                    win=win+1;
+                        playerscore=playerscore+1;
+                    }else if(result=="lose"){
+                        computerscore=computerscore+1;
                     }
 
                 }
 
+                console.log(playerscore);
+                console.log(computerscore);
 
-                let winner;
+                
 
-                if (win==3){
-                    winner="draw"
-                }else if(win>3){
-                    winner="human"
+                if (playerscore>computerscore){
+                    console.log("player win");
+                }else if(computerscore>playerscore){
+                    console.log("computer win");
                 }else{
-                    winner="computer"
+                    console.log("draw");
                 }
 
 
-                console.log(win);
-                console.log(winner);
+                
+               
 
            }
 
