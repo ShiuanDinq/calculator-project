@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <script>
+            function computerPlay(){
+                let choices = ["rock","paper","scissor"]
+                let num = Math.floor(Math.random(choices)*choices.length);
+                let selection = choices[num];
+                return(selection);
+            }
+
+            function playerPlay(){
+
+                let selection = prompt("CHOICE:");
+                return(selection);
+            }  
+           
+           function playround(computerSelection,playerSelection){
+            let pSelectionlower = playerSelection.toLowerCase();
+               if(pSelectionlower == computerSelection){
+                   console.log("draw");
+                   result="draw";
+                   return(result);
+
+               }else if(pSelectionlower=="rock"&&computerSelection=="scissor" || pSelectionlower=="scissor"&&computerSelection=="paper" || pSelectionlower=="paper"&&computerSelection=="rock"){
+                    console.log("win");
+                    result="win";
+                    return(result);
+
+               }
+               else{
+                    console.log("lose");
+                    result="lose";
+                    return(result);
+                }
+           }
+                
+                
+           function game(){
+
+               
+                let win=0;
+
+                let round=0;
+                for(round=1; round<=5; round++){
+
+                    let result = playround(computerPlay(),playerPlay());
+                
+                    if(result=="win"){
+                    win=win+1;
+                    }
+
+                }
+
+
+                let winner;
+
+                if (win==3){
+                    winner="draw"
+                }else if(win>3){
+                    winner="human"
+                }else{
+                    winner="computer"
+                }
+
+
+                console.log(win);
+                console.log(winner);
+
+           }
+
+           game();
+        
+                   
+                
+
+
+           
+
+
+
+
+
+
+           
+
+
+
+           
+        </script>
+    </body>
+</html>
