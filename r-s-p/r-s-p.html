@@ -6,19 +6,20 @@
 
     <body>
         <script>
+            // function for computer to make choice
             function computerPlay(){
                 let choices = ["rock","paper","scissor"]
                 let num = Math.floor(Math.random(choices)*choices.length);
                 let selection = choices[num];
                 return(selection);
             }
-
+            // function to prompt player
             function playerPlay(){
 
                 let selection = prompt("CHOICE:");
                 return(selection);
             }  
-           
+           // function to play 1 round of game, decide win, lose or draw. use computerPlay and playerPlay as argument. 
            function playround(computerSelection,playerSelection){
             let pSelectionlower = playerSelection.toLowerCase();
                if(pSelectionlower == computerSelection){
@@ -39,7 +40,7 @@
                 }
            }
                 
-                
+           // play 5 rounds of game, output winner out of 5 rounds. use playRound as argument.     
            function game(){
 
                
