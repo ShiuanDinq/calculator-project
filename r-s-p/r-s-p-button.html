@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <button id="rock">rock</button>
+        <button id="scissor">scissor</button>
+        <button id="paper">paper</button>
+        <script>
+
+            let playerscore=0;
+            let computerscore=0;
+                        // function for computer to make choice
+            function computerPlay(){
+                let choices = ["rock","paper","scissor"]
+                let num = Math.floor(Math.random(choices)*choices.length);
+                let selection = choices[num];
+                console.log(selection);
+                return(selection);
+            }
+
+                       // function to play 1 round of game, decide win, lose or draw. use computerPlay and playerPlay as argument. 
+           function playround(computerSelection,playerSelection){
+            let pSelectionlower = playerSelection.toLowerCase();
+               if(pSelectionlower == computerSelection){
+                   console.log("draw");
+                   result="draw";
+                   playerscore=playerscore+1;
+                   computerscore=computerscore+1;
+                   return(result);
+
+               }else if(pSelectionlower=="rock"&&computerSelection=="scissor" || pSelectionlower=="scissor"&&computerSelection=="paper" || pSelectionlower=="paper"&&computerSelection=="rock"){
+                    console.log("win");
+                    result="win";
+                    playerscore=playerscore+1;
+                    return(result);
+
+               }
+               else{
+                    console.log("lose");
+                    result="lose";
+                    computerscore=computerscore+1;
+                    return(result);
+                }
+
+                console.log(playerscore);
+                console.log(computerscore);
+           }
+
+           function score(){ 
+                if(playerscore==5){
+                    console.log("player win");
+                    computerscore=0;
+                    playerscore=0;
+                }else if(computerscore==5){
+                    console.log("computer win");
+                    computerscore=0;
+                    playerscore=0;
+                }
+            }
+
+
+            const rock = document.querySelector('#rock');
+            rock.addEventListener('click',function(){
+                console.log(playerPlay="rock");
+                playround(computerPlay(),playerPlay);
+                score();
+
+            })
+            const scissor = document.querySelector('#scissor ');
+            scissor.addEventListener('click',function(){
+                console.log(playerPlay="scissor");
+                playround(computerPlay(),playerPlay);
+                score();
+
+            })
+            const paper = document.querySelector('#paper ');
+            paper.addEventListener('click',function(){
+                console.log(playerPlay="paper");
+                playround(computerPlay(),playerPlay);
+                score();
+
+            })
+  
+        </script>
+    </body>
+</html>
